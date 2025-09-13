@@ -1,0 +1,18 @@
+[build]
+  command = "cd ../../ && npm install && cd apps/web && npm install && npm run build"
+  publish = "apps/web/.next"
+  base = ""
+
+[build.environment]
+  NODE_VERSION = "18.17.0"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+[context.production.environment]
+  NODE_ENV = "production"
+
+[context.deploy-preview.environment]
+  NODE_ENV = "production"
